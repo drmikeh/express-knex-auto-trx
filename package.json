@@ -1,0 +1,47 @@
+{
+    "name": "express-knex-auto-trx",
+    "version": "0.1.0",
+    "description": "Express middleware for automatically managing Knex.js database transactions.",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "husky install",
+        "postinstall": "husky install",
+        "prettier:check": "prettier --check .",
+        "prettier:fix": "prettier --write .",
+        "eslint:check": "eslint src",
+        "eslint:fix": "eslint --fix src"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/drmikeh/express-knex-auto-trx.git"
+    },
+    "keywords": [
+        "express",
+        "knex",
+        "transaction"
+    ],
+    "author": "Dr. Mike Hopper <drmikeh@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/drmikeh/express-knex-auto-trx/issues"
+    },
+    "homepage": "https://github.com/drmikeh/express-knex-auto-trx#readme",
+    "dependencies": {
+        "cls-hooked": "4.2.2",
+        "on-finished": "2.3.0"
+    },
+    "devDependencies": {
+        "eslint": "7.29.0",
+        "eslint-config-airbnb": "18.2.1",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "2.23.4",
+        "eslint-plugin-jest": "24.3.6",
+        "eslint-plugin-jsx-a11y": "6.4.1",
+        "eslint-plugin-prettier": "3.4.0",
+        "eslint-plugin-react": "7.24.0",
+        "eslint-plugin-react-hooks": "1.7.0",
+        "husky": "6.0.0",
+        "prettier": "2.3.1"
+    }
+}
