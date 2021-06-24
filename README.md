@@ -15,8 +15,8 @@ This middleware will automatically:
 
 ## How It Works
 
-- Uses `cls-hooked` to assign a unique transaction to each request
-- Uses `on-finished` to inspect the response `statusCode` and either `commit` or `rollback` the transaction
+- Uses [cls-hooked](https://www.npmjs.com/package/cls-hooked) to assign a unique transaction to each request
+- Uses [on-finished](https://www.npmjs.com/package/on-finished) to inspect the response `statusCode` and either `commit` or `rollback` the transaction
 
 ## Usage
 
