@@ -1,5 +1,5 @@
 {
-    "name": "express-knex-auto-trx",
+    "name": "@drmikeh/express-knex-auto-trx",
     "version": "0.1.0",
     "description": "Express middleware for automatically managing Knex.js database transactions.",
     "main": "src/index.js",
@@ -10,7 +10,8 @@
         "prettier:check": "prettier --check .",
         "prettier:fix": "prettier --write .",
         "eslint:check": "eslint src",
-        "eslint:fix": "eslint --fix src"
+        "eslint:fix": "eslint --fix src",
+        "publish": "npm publish --access public"
     },
     "repository": {
         "type": "git",
