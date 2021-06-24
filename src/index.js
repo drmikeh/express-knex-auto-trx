@@ -9,6 +9,12 @@ const { createNamespace } = require('cls-hooked');
 
 const knexNameSpace = createNamespace('trx');
 
+/**
+ *
+ * @param {object} knex an instance of Knex.Client
+ * @param {function} logger a function that logs a message
+ * @returns an Express middleware function
+ */
 function knexAutoTrx(knex, logger = null) {
     if (typeof knex !== 'function' || typeof knex.transaction !== 'function') {
         throw new TypeError(
@@ -27,13 +33,6 @@ function knexAutoTrx(knex, logger = null) {
             if (logger) {
                 logger(`TX: starting transaction for ${requestSignature}`);
             }
-
-            // TODO: Using `onFinished` with transactions may introduce a slight race condition
-            // when testing because the message may be sent to the client concurrently with the tx
-            // being committed or rolled back.
-            // To remove the race condition, we could use an interceptor, such as https://github.com/axiomzen/express-interceptor,
-            // so that we can `await` on the commit/rollback, but it looks hairy as that interceptor does monkey patching and
-            // the code hasn't been updated in 5 years.
 
             // listen for the `end` event on the response object and either
             // rollback or commit the knex transaction based on the value of
@@ -68,9 +67,14 @@ function knexAutoTrx(knex, logger = null) {
     };
 }
 
+/**
+ * If tableName is provided, use it; otherwise just return the `trx` object.
+ * This is to keep parity with the underlying `knex` / `trx` API.
+ *
+ * @param {string} tableName an optional name of a database table
+ * @returns the local database transaction
+ */
 function getTrx(tableName) {
-    // If tableName is provided, use it; otherwise just return the `trx` object.
-    // This is to keep parity with the underlying `knex` / `trx` API.
     return tableName
         ? knexNameSpace.get('trx')(tableName)
         : knexNameSpace.get('trx');
