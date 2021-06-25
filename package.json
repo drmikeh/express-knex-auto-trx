@@ -4,8 +4,8 @@
     "description": "Express middleware for automatically managing Knex.js database transactions.",
     "main": "src/index.js",
     "scripts": {
-        "test:watch": "jest --watch",
-        "test:ci": "jest",
+        "test:watch": "jest --watch src",
+        "test:ci": "jest src",
         "prepare": "husky install",
         "prettier:check": "prettier --check .",
         "prettier:fix": "prettier --write .",
