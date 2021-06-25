@@ -1,6 +1,6 @@
 {
     "name": "@drmikehopper/express-knex-auto-trx",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Express middleware for automatically managing Knex.js database transactions.",
     "main": "src/index.js",
     "scripts": {
