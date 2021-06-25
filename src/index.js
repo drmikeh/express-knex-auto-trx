@@ -57,6 +57,7 @@ function knexAutoTrx(knex, logger = null) {
                     trx.commit();
                 }
             });
+
             knexNameSpace.run(() => {
                 knexNameSpace.set('trx', trx);
                 next();
